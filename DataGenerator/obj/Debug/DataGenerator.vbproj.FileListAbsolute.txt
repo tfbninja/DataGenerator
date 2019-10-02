@@ -1,0 +1,15 @@
+C:\Users\tfbni\Documents\GitHub\DataGenerator\DataGenerator\obj\Debug\DataGenerator.vbprojAssemblyReference.cache
+C:\Users\tfbni\Documents\GitHub\DataGenerator\DataGenerator\obj\Debug\DataGenerator.MainWindow.resources
+C:\Users\tfbni\Documents\GitHub\DataGenerator\DataGenerator\obj\Debug\DataGenerator.Resources.resources
+C:\Users\tfbni\Documents\GitHub\DataGenerator\DataGenerator\obj\Debug\DataGenerator.vbproj.GenerateResource.cache
+C:\Users\tfbni\Documents\GitHub\DataGenerator\DataGenerator\obj\Debug\DataGenerator.vbproj.CoreCompileInputs.cache
+C:\Users\tfbni\Documents\GitHub\DataGenerator\DataGenerator\bin\Debug\DataGenerator.exe.config
+C:\Users\tfbni\Documents\GitHub\DataGenerator\DataGenerator\bin\Debug\DataGenerator.exe
+C:\Users\tfbni\Documents\GitHub\DataGenerator\DataGenerator\bin\Debug\DataGenerator.pdb
+C:\Users\tfbni\Documents\GitHub\DataGenerator\DataGenerator\bin\Debug\DataGenerator.xml
+C:\Users\tfbni\Documents\GitHub\DataGenerator\DataGenerator\obj\Debug\DataGenerator.exe
+C:\Users\tfbni\Documents\GitHub\DataGenerator\DataGenerator\obj\Debug\DataGenerator.xml
+C:\Users\tfbni\Documents\GitHub\DataGenerator\DataGenerator\obj\Debug\DataGenerator.pdb
+C:\Users\tfbni\Documents\GitHub\DataGenerator\DataGenerator\bin\Debug\Aspose.Words.dll
+C:\Users\tfbni\Documents\GitHub\DataGenerator\DataGenerator\bin\Debug\Aspose.Words.xml
+C:\Users\tfbni\Documents\GitHub\DataGenerator\DataGenerator\obj\Debug\DataGenerator.vbproj.CopyComplete
