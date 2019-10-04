@@ -23,12 +23,14 @@ Partial Class MainWindow
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea13 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend13 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series13 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea14 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend14 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series14 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea5 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend5 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title5 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea6 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend6 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title6 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
         Me.numPointsUpDown = New System.Windows.Forms.NumericUpDown()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.decimalPlacesGroupBox = New System.Windows.Forms.GroupBox()
@@ -51,8 +53,10 @@ Partial Class MainWindow
         Me.Label9 = New System.Windows.Forms.Label()
         Me.maxValUpDown = New System.Windows.Forms.NumericUpDown()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.normalDistributionBox = New System.Windows.Forms.CheckBox()
         Me.distributionGroupBox = New System.Windows.Forms.GroupBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.flatCurveRadio = New System.Windows.Forms.RadioButton()
+        Me.bellCurveRadio = New System.Windows.Forms.RadioButton()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.nModalUpDown = New System.Windows.Forms.NumericUpDown()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -74,6 +78,9 @@ Partial Class MainWindow
         Me.sumSquaresLabel = New System.Windows.Forms.Label()
         Me.sumLabel = New System.Windows.Forms.Label()
         Me.meanLabel = New System.Windows.Forms.Label()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.histogramBarsSlider = New System.Windows.Forms.TrackBar()
+        Me.Label4 = New System.Windows.Forms.Label()
         CType(Me.numPointsUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.decimalPlacesGroupBox.SuspendLayout()
         Me.percentageGroupBox.SuspendLayout()
@@ -83,12 +90,15 @@ Partial Class MainWindow
         CType(Me.minValUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.maxValUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.distributionGroupBox.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
         CType(Me.nModalUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.extremeTrackBar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.percentiles, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.histogram, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
+        CType(Me.histogramBarsSlider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'numPointsUpDown
@@ -105,7 +115,7 @@ Partial Class MainWindow
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(32, 69)
+        Me.Label1.Location = New System.Drawing.Point(41, 63)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(111, 13)
         Me.Label1.TabIndex = 1
@@ -116,10 +126,10 @@ Partial Class MainWindow
         Me.decimalPlacesGroupBox.Controls.Add(Me.percentageGroupBox)
         Me.decimalPlacesGroupBox.Controls.Add(Me.Label3)
         Me.decimalPlacesGroupBox.Controls.Add(Me.maximumDecimalPlacesUpDown)
-        Me.decimalPlacesGroupBox.Location = New System.Drawing.Point(35, 286)
+        Me.decimalPlacesGroupBox.Location = New System.Drawing.Point(6, 206)
         Me.decimalPlacesGroupBox.Name = "decimalPlacesGroupBox"
         Me.decimalPlacesGroupBox.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.decimalPlacesGroupBox.Size = New System.Drawing.Size(283, 135)
+        Me.decimalPlacesGroupBox.Size = New System.Drawing.Size(276, 122)
         Me.decimalPlacesGroupBox.TabIndex = 4
         Me.decimalPlacesGroupBox.TabStop = False
         Me.decimalPlacesGroupBox.Text = "Decimal places"
@@ -132,7 +142,7 @@ Partial Class MainWindow
         Me.percentageGroupBox.Controls.Add(Me.minimumDecimalPercentageUpDown)
         Me.percentageGroupBox.Location = New System.Drawing.Point(9, 50)
         Me.percentageGroupBox.Name = "percentageGroupBox"
-        Me.percentageGroupBox.Size = New System.Drawing.Size(268, 76)
+        Me.percentageGroupBox.Size = New System.Drawing.Size(261, 67)
         Me.percentageGroupBox.TabIndex = 8
         Me.percentageGroupBox.TabStop = False
         Me.percentageGroupBox.Text = "Percentage with decimal places"
@@ -140,7 +150,7 @@ Partial Class MainWindow
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(6, 56)
+        Me.Label6.Location = New System.Drawing.Point(3, 42)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(108, 13)
         Me.Label6.TabIndex = 12
@@ -148,7 +158,7 @@ Partial Class MainWindow
         '
         'maximumDecimalPercentageUpDown
         '
-        Me.maximumDecimalPercentageUpDown.Location = New System.Drawing.Point(191, 49)
+        Me.maximumDecimalPercentageUpDown.Location = New System.Drawing.Point(184, 40)
         Me.maximumDecimalPercentageUpDown.Name = "maximumDecimalPercentageUpDown"
         Me.maximumDecimalPercentageUpDown.Size = New System.Drawing.Size(71, 20)
         Me.maximumDecimalPercentageUpDown.TabIndex = 11
@@ -158,7 +168,7 @@ Partial Class MainWindow
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(6, 30)
+        Me.Label5.Location = New System.Drawing.Point(6, 16)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(105, 13)
         Me.Label5.TabIndex = 10
@@ -166,7 +176,7 @@ Partial Class MainWindow
         '
         'minimumDecimalPercentageUpDown
         '
-        Me.minimumDecimalPercentageUpDown.Location = New System.Drawing.Point(191, 23)
+        Me.minimumDecimalPercentageUpDown.Location = New System.Drawing.Point(184, 14)
         Me.minimumDecimalPercentageUpDown.Name = "minimumDecimalPercentageUpDown"
         Me.minimumDecimalPercentageUpDown.Size = New System.Drawing.Size(71, 20)
         Me.minimumDecimalPercentageUpDown.TabIndex = 9
@@ -176,7 +186,7 @@ Partial Class MainWindow
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 22)
+        Me.Label3.Location = New System.Drawing.Point(6, 23)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(124, 13)
         Me.Label3.TabIndex = 5
@@ -184,7 +194,7 @@ Partial Class MainWindow
         '
         'maximumDecimalPlacesUpDown
         '
-        Me.maximumDecimalPlacesUpDown.Location = New System.Drawing.Point(206, 15)
+        Me.maximumDecimalPlacesUpDown.Location = New System.Drawing.Point(199, 21)
         Me.maximumDecimalPlacesUpDown.Maximum = New Decimal(New Integer() {8, 0, 0, 0})
         Me.maximumDecimalPlacesUpDown.Name = "maximumDecimalPlacesUpDown"
         Me.maximumDecimalPlacesUpDown.Size = New System.Drawing.Size(71, 20)
@@ -195,7 +205,7 @@ Partial Class MainWindow
         'decimalPlacesBox
         '
         Me.decimalPlacesBox.AutoSize = True
-        Me.decimalPlacesBox.Location = New System.Drawing.Point(35, 263)
+        Me.decimalPlacesBox.Location = New System.Drawing.Point(6, 183)
         Me.decimalPlacesBox.Name = "decimalPlacesBox"
         Me.decimalPlacesBox.Size = New System.Drawing.Size(98, 17)
         Me.decimalPlacesBox.TabIndex = 5
@@ -242,15 +252,15 @@ Partial Class MainWindow
         '
         'seedBox
         '
-        Me.seedBox.Location = New System.Drawing.Point(35, 25)
+        Me.seedBox.Location = New System.Drawing.Point(156, 66)
         Me.seedBox.Name = "seedBox"
-        Me.seedBox.Size = New System.Drawing.Size(220, 20)
+        Me.seedBox.Size = New System.Drawing.Size(126, 20)
         Me.seedBox.TabIndex = 10
         '
         'Seed
         '
         Me.Seed.AutoSize = True
-        Me.Seed.Location = New System.Drawing.Point(32, 9)
+        Me.Seed.Location = New System.Drawing.Point(6, 69)
         Me.Seed.Name = "Seed"
         Me.Seed.Size = New System.Drawing.Size(32, 13)
         Me.Seed.TabIndex = 11
@@ -259,7 +269,7 @@ Partial Class MainWindow
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(32, 105)
+        Me.Label8.Location = New System.Drawing.Point(6, 16)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(77, 13)
         Me.Label8.TabIndex = 13
@@ -269,18 +279,18 @@ Partial Class MainWindow
         'minValUpDown
         '
         Me.minValUpDown.DecimalPlaces = 6
-        Me.minValUpDown.Location = New System.Drawing.Point(166, 103)
+        Me.minValUpDown.Location = New System.Drawing.Point(156, 14)
         Me.minValUpDown.Maximum = New Decimal(New Integer() {100000000, 0, 0, 0})
         Me.minValUpDown.Minimum = New Decimal(New Integer() {100000000, 0, 0, -2147483648})
         Me.minValUpDown.Name = "minValUpDown"
-        Me.minValUpDown.Size = New System.Drawing.Size(89, 20)
+        Me.minValUpDown.Size = New System.Drawing.Size(126, 20)
         Me.minValUpDown.TabIndex = 12
         Me.minValUpDown.ThousandsSeparator = True
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(32, 143)
+        Me.Label9.Location = New System.Drawing.Point(6, 42)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(80, 13)
         Me.Label9.TabIndex = 15
@@ -290,46 +300,67 @@ Partial Class MainWindow
         'maxValUpDown
         '
         Me.maxValUpDown.DecimalPlaces = 6
-        Me.maxValUpDown.Location = New System.Drawing.Point(166, 141)
+        Me.maxValUpDown.Location = New System.Drawing.Point(156, 40)
         Me.maxValUpDown.Maximum = New Decimal(New Integer() {100000000, 0, 0, 0})
         Me.maxValUpDown.Minimum = New Decimal(New Integer() {100000000, 0, 0, -2147483648})
         Me.maxValUpDown.Name = "maxValUpDown"
-        Me.maxValUpDown.Size = New System.Drawing.Size(89, 20)
+        Me.maxValUpDown.Size = New System.Drawing.Size(126, 20)
         Me.maxValUpDown.TabIndex = 14
         Me.maxValUpDown.ThousandsSeparator = True
         Me.maxValUpDown.Value = New Decimal(New Integer() {100, 0, 0, 0})
         '
-        'normalDistributionBox
-        '
-        Me.normalDistributionBox.AutoSize = True
-        Me.normalDistributionBox.Checked = True
-        Me.normalDistributionBox.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.normalDistributionBox.Location = New System.Drawing.Point(356, 69)
-        Me.normalDistributionBox.Name = "normalDistributionBox"
-        Me.normalDistributionBox.Size = New System.Drawing.Size(112, 17)
-        Me.normalDistributionBox.TabIndex = 16
-        Me.normalDistributionBox.Text = "Normal distribution"
-        Me.ToolTip1.SetToolTip(Me.normalDistributionBox, "Not yet implemented")
-        Me.normalDistributionBox.UseVisualStyleBackColor = True
-        '
         'distributionGroupBox
         '
+        Me.distributionGroupBox.Controls.Add(Me.GroupBox3)
         Me.distributionGroupBox.Controls.Add(Me.Label11)
         Me.distributionGroupBox.Controls.Add(Me.nModalUpDown)
         Me.distributionGroupBox.Controls.Add(Me.Label10)
         Me.distributionGroupBox.Controls.Add(Me.extremeTrackBar)
         Me.distributionGroupBox.Controls.Add(Me.GroupBox1)
-        Me.distributionGroupBox.Location = New System.Drawing.Point(356, 105)
+        Me.distributionGroupBox.Location = New System.Drawing.Point(44, 85)
         Me.distributionGroupBox.Name = "distributionGroupBox"
-        Me.distributionGroupBox.Size = New System.Drawing.Size(178, 316)
+        Me.distributionGroupBox.Size = New System.Drawing.Size(178, 336)
         Me.distributionGroupBox.TabIndex = 17
         Me.distributionGroupBox.TabStop = False
         Me.distributionGroupBox.Text = "Distribution controls"
         '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.flatCurveRadio)
+        Me.GroupBox3.Controls.Add(Me.bellCurveRadio)
+        Me.GroupBox3.Location = New System.Drawing.Point(6, 19)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(99, 65)
+        Me.GroupBox3.TabIndex = 29
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Curve"
+        '
+        'flatCurveRadio
+        '
+        Me.flatCurveRadio.AutoSize = True
+        Me.flatCurveRadio.Checked = True
+        Me.flatCurveRadio.Location = New System.Drawing.Point(6, 19)
+        Me.flatCurveRadio.Name = "flatCurveRadio"
+        Me.flatCurveRadio.Size = New System.Drawing.Size(42, 17)
+        Me.flatCurveRadio.TabIndex = 27
+        Me.flatCurveRadio.TabStop = True
+        Me.flatCurveRadio.Text = "Flat"
+        Me.flatCurveRadio.UseVisualStyleBackColor = True
+        '
+        'bellCurveRadio
+        '
+        Me.bellCurveRadio.AutoSize = True
+        Me.bellCurveRadio.Location = New System.Drawing.Point(6, 42)
+        Me.bellCurveRadio.Name = "bellCurveRadio"
+        Me.bellCurveRadio.Size = New System.Drawing.Size(42, 17)
+        Me.bellCurveRadio.TabIndex = 28
+        Me.bellCurveRadio.Text = "Bell"
+        Me.bellCurveRadio.UseVisualStyleBackColor = True
+        '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(10, 216)
+        Me.Label11.Location = New System.Drawing.Point(3, 289)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(47, 13)
         Me.Label11.TabIndex = 7
@@ -337,7 +368,7 @@ Partial Class MainWindow
         '
         'nModalUpDown
         '
-        Me.nModalUpDown.Location = New System.Drawing.Point(13, 232)
+        Me.nModalUpDown.Location = New System.Drawing.Point(6, 305)
         Me.nModalUpDown.Maximum = New Decimal(New Integer() {20, 0, 0, 0})
         Me.nModalUpDown.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.nModalUpDown.Name = "nModalUpDown"
@@ -348,7 +379,7 @@ Partial Class MainWindow
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(10, 142)
+        Me.Label10.Location = New System.Drawing.Point(3, 215)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(67, 13)
         Me.Label10.TabIndex = 5
@@ -356,12 +387,13 @@ Partial Class MainWindow
         '
         'extremeTrackBar
         '
-        Me.extremeTrackBar.Location = New System.Drawing.Point(6, 162)
-        Me.extremeTrackBar.Minimum = 2
+        Me.extremeTrackBar.Location = New System.Drawing.Point(-1, 235)
+        Me.extremeTrackBar.Maximum = 100
         Me.extremeTrackBar.Name = "extremeTrackBar"
         Me.extremeTrackBar.Size = New System.Drawing.Size(159, 45)
         Me.extremeTrackBar.TabIndex = 4
-        Me.extremeTrackBar.Value = 2
+        Me.extremeTrackBar.TickFrequency = 5
+        Me.extremeTrackBar.Value = 1
         '
         'GroupBox1
         '
@@ -369,7 +401,7 @@ Partial Class MainWindow
         Me.GroupBox1.Controls.Add(Me.randomButton)
         Me.GroupBox1.Controls.Add(Me.leftButton)
         Me.GroupBox1.Controls.Add(Me.rightButton)
-        Me.GroupBox1.Location = New System.Drawing.Point(13, 19)
+        Me.GroupBox1.Location = New System.Drawing.Point(6, 92)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(99, 111)
         Me.GroupBox1.TabIndex = 3
@@ -473,39 +505,47 @@ Partial Class MainWindow
         '
         'percentiles
         '
-        ChartArea13.Name = "ChartArea1"
-        Me.percentiles.ChartAreas.Add(ChartArea13)
-        Legend13.Name = "Legend1"
-        Me.percentiles.Legends.Add(Legend13)
+        ChartArea5.Name = "ChartArea1"
+        Me.percentiles.ChartAreas.Add(ChartArea5)
+        Legend5.Name = "Legend1"
+        Me.percentiles.Legends.Add(Legend5)
         Me.percentiles.Location = New System.Drawing.Point(543, 487)
         Me.percentiles.Name = "percentiles"
-        Series13.ChartArea = "ChartArea1"
-        Series13.Legend = "Legend1"
-        Series13.Name = "SeriesJuan"
-        Series13.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry
-        Series13.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.[Double]
-        Me.percentiles.Series.Add(Series13)
+        Series5.ChartArea = "ChartArea1"
+        Series5.Legend = "Legend1"
+        Series5.Name = "SeriesJuan"
+        Series5.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry
+        Series5.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.[Double]
+        Me.percentiles.Series.Add(Series5)
         Me.percentiles.Size = New System.Drawing.Size(485, 300)
         Me.percentiles.TabIndex = 24
         Me.percentiles.Text = "Histogram"
+        Title5.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title5.Name = "Title1"
+        Title5.Text = "Cumulative Relative Frequency"
+        Me.percentiles.Titles.Add(Title5)
         '
         'histogram
         '
-        ChartArea14.Name = "ChartArea1"
-        Me.histogram.ChartAreas.Add(ChartArea14)
-        Legend14.Name = "Legend1"
-        Me.histogram.Legends.Add(Legend14)
+        ChartArea6.Name = "ChartArea1"
+        Me.histogram.ChartAreas.Add(ChartArea6)
+        Legend6.Name = "Histogram"
+        Me.histogram.Legends.Add(Legend6)
         Me.histogram.Location = New System.Drawing.Point(35, 487)
         Me.histogram.Name = "histogram"
-        Series14.ChartArea = "ChartArea1"
-        Series14.Legend = "Legend1"
-        Series14.Name = "seriesjuan"
-        Series14.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones
-        Series14.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.[Double]
-        Me.histogram.Series.Add(Series14)
+        Series6.ChartArea = "ChartArea1"
+        Series6.Legend = "Histogram"
+        Series6.Name = "seriesjuan"
+        Series6.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones
+        Series6.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.[Double]
+        Me.histogram.Series.Add(Series6)
         Me.histogram.Size = New System.Drawing.Size(485, 300)
         Me.histogram.TabIndex = 25
         Me.histogram.Text = "Histogram"
+        Title6.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title6.Name = "Histogram"
+        Title6.Text = "Histogram"
+        Me.histogram.Titles.Add(Title6)
         '
         'GroupBox2
         '
@@ -513,9 +553,9 @@ Partial Class MainWindow
         Me.GroupBox2.Controls.Add(Me.sumSquaresLabel)
         Me.GroupBox2.Controls.Add(Me.sumLabel)
         Me.GroupBox2.Controls.Add(Me.meanLabel)
-        Me.GroupBox2.Location = New System.Drawing.Point(576, 240)
+        Me.GroupBox2.Location = New System.Drawing.Point(576, 300)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(177, 173)
+        Me.GroupBox2.Size = New System.Drawing.Size(177, 113)
         Me.GroupBox2.TabIndex = 26
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "One Variable Stats"
@@ -556,11 +596,50 @@ Partial Class MainWindow
         Me.meanLabel.TabIndex = 0
         Me.meanLabel.Text = "Mean: "
         '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.Label8)
+        Me.GroupBox4.Controls.Add(Me.minValUpDown)
+        Me.GroupBox4.Controls.Add(Me.maxValUpDown)
+        Me.GroupBox4.Controls.Add(Me.Label9)
+        Me.GroupBox4.Controls.Add(Me.seedBox)
+        Me.GroupBox4.Controls.Add(Me.Seed)
+        Me.GroupBox4.Controls.Add(Me.decimalPlacesBox)
+        Me.GroupBox4.Controls.Add(Me.decimalPlacesGroupBox)
+        Me.GroupBox4.Location = New System.Drawing.Point(282, 85)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(288, 336)
+        Me.GroupBox4.TabIndex = 27
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Optional"
+        '
+        'histogramBarsSlider
+        '
+        Me.histogramBarsSlider.Location = New System.Drawing.Point(35, 442)
+        Me.histogramBarsSlider.Maximum = 20
+        Me.histogramBarsSlider.Minimum = 1
+        Me.histogramBarsSlider.Name = "histogramBarsSlider"
+        Me.histogramBarsSlider.Size = New System.Drawing.Size(153, 45)
+        Me.histogramBarsSlider.TabIndex = 28
+        Me.histogramBarsSlider.Value = 1
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(41, 424)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(77, 13)
+        Me.Label4.TabIndex = 30
+        Me.Label4.Text = "Histogram bars"
+        '
         'MainWindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1052, 816)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.histogramBarsSlider)
+        Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.histogram)
         Me.Controls.Add(Me.percentiles)
@@ -570,19 +649,10 @@ Partial Class MainWindow
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.outputBoxSorted)
         Me.Controls.Add(Me.distributionGroupBox)
-        Me.Controls.Add(Me.normalDistributionBox)
-        Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.maxValUpDown)
-        Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.minValUpDown)
-        Me.Controls.Add(Me.Seed)
-        Me.Controls.Add(Me.seedBox)
         Me.Controls.Add(Me.generateButton)
         Me.Controls.Add(Me.copyCSVButton)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.outputBox)
-        Me.Controls.Add(Me.decimalPlacesBox)
-        Me.Controls.Add(Me.decimalPlacesGroupBox)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.numPointsUpDown)
         Me.Name = "MainWindow"
@@ -600,6 +670,8 @@ Partial Class MainWindow
         CType(Me.maxValUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         Me.distributionGroupBox.ResumeLayout(False)
         Me.distributionGroupBox.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         CType(Me.nModalUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.extremeTrackBar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
@@ -608,6 +680,9 @@ Partial Class MainWindow
         CType(Me.histogram, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
+        CType(Me.histogramBarsSlider, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -635,7 +710,6 @@ Partial Class MainWindow
     Friend WithEvents Label9 As Label
     Friend WithEvents maxValUpDown As NumericUpDown
     Friend WithEvents ToolTip1 As ToolTip
-    Friend WithEvents normalDistributionBox As CheckBox
     Friend WithEvents distributionGroupBox As GroupBox
     Friend WithEvents Label11 As Label
     Friend WithEvents nModalUpDown As NumericUpDown
@@ -658,4 +732,10 @@ Partial Class MainWindow
     Friend WithEvents sumSquaresLabel As Label
     Friend WithEvents sumLabel As Label
     Friend WithEvents meanLabel As Label
+    Friend WithEvents flatCurveRadio As RadioButton
+    Friend WithEvents bellCurveRadio As RadioButton
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents histogramBarsSlider As TrackBar
+    Friend WithEvents Label4 As Label
 End Class

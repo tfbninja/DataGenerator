@@ -27,8 +27,28 @@ Public Class MainWindow
         maxValUpDown.Minimum = minValUpDown.Value
         minimumDecimalPercentageUpDown.Maximum = maximumDecimalPercentageUpDown.Value
         maximumDecimalPercentageUpDown.Minimum = minimumDecimalPercentageUpDown.Value
+    End Sub
 
-        distributionGroupBox.Enabled = Not normalDistributionBox.Checked
+    Private Sub UpdateCharts()
+        histogram.Series("seriesjuan").Points.Clear()
+        Dim bars(histogramBarsSlider.Value) As Integer
+        For i = 0 To histogramBarsSlider.Value - 1
+            bars(i) = 0
+        Next
+        For Each val As Double In values
+            Console.WriteLine("val " & val)
+            Console.WriteLine("min " & sortedValues.Min)
+            Console.WriteLine("max " & sortedValues.Max)
+            bars((sortedValues.Max - val) \ histogramBarsSlider.Value) += 1
+        Next
+        For Each pt As Double In bars
+            histogram.Series("seriesjuan").Points.AddY(pt)
+        Next
+
+        percentiles.Series("SeriesJuan").Points.Clear()
+        For Each pt As Double In sortedValues
+            percentiles.Series("SeriesJuan").Points.AddY(pt)
+        Next
     End Sub
 
     Private Sub DecimalPlacesBox_CheckedChanged(sender As Object, e As EventArgs) Handles decimalPlacesBox.CheckedChanged
@@ -86,12 +106,10 @@ Public Class MainWindow
         Dim arbitraryPercentage = 0.95
         For i As Integer = 0 To numPointsUpDown.Value - 1
             If (Not cancel) Then
-                If (normalDistributionBox.Checked) Then
-                    Dim decimalPercentage As Integer
-                    decimalPercentage = random.Next(minimumDecimalPercentageUpDown.Value, maximumDecimalPercentageUpDown.Value) / 100
+                If (flatCurveRadio.Checked) Then
+                    Dim decimalPercentage = random.Next(minimumDecimalPercentageUpDown.Value, maximumDecimalPercentageUpDown.Value) / 100
 
-                    Dim isDecimaled As Boolean
-                    isDecimaled = (random.NextDouble < decimalPercentage) And decimalPlacesBox.Checked
+                    Dim isDecimaled = (random.NextDouble < decimalPercentage) And decimalPlacesBox.Checked
 
                     Dim actualNumber As Double
                     actualNumber = minValUpDown.Value + If(maxValUpDown.Value - minValUpDown.Value > 0, random.Next(0, 2), 0) + (random.NextDouble * (maxValUpDown.Value - minValUpDown.Value))
@@ -139,17 +157,13 @@ Public Class MainWindow
 
         outputBox.Enabled = True
 
-        histogram.Series("seriesjuan").Points.Clear()
-        For Each pt As Double In values
-            histogram.Series("seriesjuan").Points.AddY(pt)
-        Next
-
-        sortedValues = values
+        sortedValues = values.ToList()
         sortedValues.Sort()
         progressBar.Value = (arbitraryPercentage * 100) + (1 - arbitraryPercentage) * (40 / 100)
         For Each val As Double In sortedValues
             outputBoxSorted.Text += val & vbNewLine
             progressBar.Value = (arbitraryPercentage * 100) + ((1 - arbitraryPercentage) * (outputBoxSorted.Lines.Length / sortedValues.Count) * 100)
+            Application.DoEvents()
         Next
         progressBar.Value = 100
         progressBar.Visible = False
@@ -157,10 +171,7 @@ Public Class MainWindow
         outputBoxSorted.Enabled = True
 
         'Time for chart
-        percentiles.Series("SeriesJuan").Points.Clear()
-        For Each pt As Double In sortedValues
-            percentiles.Series("SeriesJuan").Points.AddY(pt)
-        Next
+        UpdateCharts()
         OneVarStats()
 
     End Sub
@@ -186,9 +197,10 @@ Public Class MainWindow
         UpdateAll()
     End Sub
 
-    Private Sub NormalDistributionBox_CheckedChanged(sender As Object, e As EventArgs) Handles normalDistributionBox.CheckedChanged
+    Private Sub BellCurveRadio_CheckedChanged(sender As Object, e As EventArgs) Handles bellCurveRadio.CheckedChanged
         UpdateAll()
-        normalDistributionBox.Checked = True
+        bellCurveRadio.Checked = False
+        flatCurveRadio.Checked = True
     End Sub
 
     Private Sub CopyCSVSortedButton_Click(sender As Object, e As EventArgs) Handles copyCSVSortedButton.Click
@@ -251,5 +263,10 @@ Public Class MainWindow
         stdDevLabel.Text = "σx  " & Math.Pow(mean2, 0.5)
 
 
+    End Sub
+
+    Private Sub HistogramBarsSlider_Scroll(sender As Object, e As EventArgs) Handles histogramBarsSlider.Scroll
+        UpdateAll()
+        UpdateCharts()
     End Sub
 End Class
